@@ -19,14 +19,16 @@ public class Cliente {
      * @param args the command line arguments
      */
     
+    public static Scanner sc = new Scanner(System.in);
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         
         System.out.println("Ingrese El Precio del plan: ");
         int tipoPaquete = sc.nextInt();
         
-        PlanTelefonia paquete =  new PlanTelefoniaFactory().getPaquete(tipoPaquete);
-        paquete.setTelefono("77587875");
+        PlanTelefoniaFactory factory = new PlanTelefoniaFactory();
+        PlanTelefonia paquete =  factory.getPaquete(tipoPaquete);
+        paquete.setTelefono("3134569877");
         String telefono = paquete.getTelefono();
         
         System.out.println("Su numero " + telefono + " Tiene: ");
