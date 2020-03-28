@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/SalonDeChatPrivado.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/ISalonDeChat.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/Usuario.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/SalonDeChat.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/IUsuarioChat.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/ISalonDeChatPrivado.java</file>
-            <file>file:/C:/Users/Usuario/Documents/KL/ArquitecturaSW/Mediator/src/mediator/Mediator.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Mediator/src/mediator/Usuario.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Mediator/src/mediator/Mediator.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Mediator/src/mediator/ChatPrivado.java</file>
+            <file>file:/C:/Users/Carlos/Documents/NetBeansProjects/Mediator/src/mediator/SalonDeChat.java</file>
         </group>
     </open-files>
 </project-private>

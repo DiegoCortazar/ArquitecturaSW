@@ -7,7 +7,7 @@ package mediator;
 
 /**
  *
- * @author DiegoCortazar
+ * @author Diego
  */
 public class Mediator {
 
@@ -15,29 +15,38 @@ public class Mediator {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SalonDeChat s = new SalonDeChat();
-        SalonDeChatPrivado chPr = new SalonDeChatPrivado();
 
-        Usuario u = new Usuario(s);
+        SalonDeChat s = new SalonDeChat();
+        SalonDeChatPrivado sP = new SalonDeChatPrivado();
+
+        UsuarioChat u = new UsuarioChat(s,sP);
         u.setNombre("Juan");
         s.registra(u);
-        chPr.registra(u);
 
-        Usuario u1 = new Usuario(s);
+        UsuarioChat u1 = new UsuarioChat(s,sP);
         u1.setNombre("Pepe");
         s.registra(u1);
-        chPr.registra(u1);
 
-        Usuario u2 = new Usuario(s);
+        UsuarioChat u2 = new UsuarioChat(s,sP);
         u2.setNombre("Pedro");
         s.registra(u2);
-        chPr.registra(u2);
 
-        u.envia("Pepe", "Hola, Cómo Andas?");
-        u1.envia("Juan", "Todo Ok, Vos?");
-        u2.envia("Martin", "Martin Estás?");
+        u.envia("Pepe", "Hola como andas?");
+        u1.envia("Juan", "Todo ok, vos?");
+        u2.envia("Pedro", "Martin estas?");
 
-        chPr.buscarUsuario("Pepe");
+        UsuarioChat u3 = new UsuarioChat(s,sP);
+        u3.setNombre("Andres");
+        sP.registra(u3);
+
+        UsuarioChat u4 = new UsuarioChat(s,sP);
+        u4.setNombre("Diego");
+
+        sP.bloquearUsuario(u3);
+        sP.desbloquearUsuario(u3);
+        
+        sP.invitarUsuario(u4);
+        sP.BuscarUsuario(u4);
 
     }
 

@@ -6,55 +6,64 @@
 package mediator;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import sun.net.www.protocol.http.HttpURLConnection;
 
 /**
  *
- * @author Usuario
+ * @author Diego
+ *
  */
-public class SalonDeChatPrivado implements ISalonDeChatPrivado {
+public class SalonDeChatPrivado implements ISalonDeChat {
 
-    private HashMap<String, Usuario> participantes = new HashMap<String, Usuario>();
+    private SalonDeChat salon = new SalonDeChat();
+    private HashMap<String, UsuarioChat> participantes = this.salon.getParticipantes();
+    private HashMap<String, UsuarioChat> usersBloqueados = new HashMap<String, UsuarioChat>();
 
     @Override
-    public void registra(Usuario user) {
-        participantes.put(user.getNombre(), user);
+    public void registra(UsuarioChat user) {
+        salon.registra(user);
     }
 
     @Override
     public void envia(String de, String a, String msg) {
-        if (participantes.containsKey(de) && participantes.containsKey(a)) {
-            Usuario u = participantes.get(a);
-            u.recibe(de, msg);
+      
+        if (usersBloqueados.containsKey(de)) {
+            System.out.println(participantes.get(de).getNombre()+ " Esta Bloqueado");
+        } else if (usersBloqueados.containsKey(a)) {
+            System.out.println("El Usuario esta bloqueado");
         } else {
-            System.out.println("Usuario Inexistente");
+            salon.envia(de, a, msg);
         }
     }
 
-    @Override
-    public void bloquearUsuario(Usuario participante) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void desbloquearUsuario(Usuario participante) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void invitarUsuario(Usuario participante) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void buscarUsuario(String participante) {
-        if (participantes.containsKey(participante)) {
-            participantes.get(participante);
-            System.out.println("El Usuario: " + participante + " Existe!");
+    public void bloquearUsuario(UsuarioChat user) {
+        if (participantes.containsKey(user.getNombre())) {
+            usersBloqueados.put(user.getNombre(), user);
+            System.out.println("El usuario " + user.getNombre() + " Ha sido bloqueado");
         } else {
-            System.out.println("El Usuario No Existe");
+            System.out.println("El usuario No Existe");
         }
+    }
 
+    public void desbloquearUsuario(UsuarioChat user) {
+        if (participantes.containsKey(user.getNombre()) && usersBloqueados.containsKey(user.getNombre())) {
+            usersBloqueados.remove(user.getNombre(), user);
+            System.out.println("El usuario: " + user.getNombre() + " ha sido desbloqueado");
+        } else {
+            System.out.println("El usuario No Existe o No Esta Bloqueado");
+        }
+    }
+
+    public void invitarUsuario(UsuarioChat user) {
+        participantes.put(user.getNombre(), user);
+        System.out.println("Se Invitó a: " + user.getNombre() );
+    }
+
+    public void BuscarUsuario(UsuarioChat user) {
+        if (participantes.containsKey(user.getNombre())) {
+            System.out.println("El usuario existe");
+        }else{
+            System.out.println("Usuario No Existe");
+        }
     }
 }

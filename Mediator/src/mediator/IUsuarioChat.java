@@ -7,7 +7,7 @@ package mediator;
 
 /**
  *
- * @author DiegoCortazar
+ * @author Diego
  */
 public interface IUsuarioChat {
 

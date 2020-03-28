@@ -7,11 +7,11 @@ package mediator;
 
 /**
  *
- * @author DiegoCortazar
+ * @author Diego
  */
 public interface ISalonDeChat {
 
-    public abstract void registra(Usuario participante);
+    public abstract void registra(UsuarioChat participante);
 
     public abstract void envia(String de, String a, String msg);
 }
