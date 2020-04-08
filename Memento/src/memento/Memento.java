@@ -7,17 +7,17 @@ package memento;
 
 /**
  *
- * @author DarkFACS
+ * @author Diego
  */
 public class Memento {
 
-    private String state;
+    private Persona per;
 
-    public Memento(String state) {
-        this.state = state;
+    public Memento(Persona per) {
+        this.per = per;
     }
 
-    public String getState() {
-        return state;
+    public Persona getState() {
+        return per;
     }
 }

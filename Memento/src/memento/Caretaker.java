@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author DarkFACS
+ * @author Diego
  */
 public class Caretaker {
 
@@ -19,7 +19,7 @@ public class Caretaker {
         mementos.add(m);
     }
 
-    public Memento getMemento() {
-        return mementos.get(1);
+    public Memento getMemento(int index) {
+        return mementos.get(index);
     }
 }
