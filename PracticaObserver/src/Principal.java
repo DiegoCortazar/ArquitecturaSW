@@ -16,10 +16,12 @@ public class Principal {
 		VentanaOpciones miVentanaOpciones=new VentanaOpciones(observador);
 		VentanaColor miVentanaColor=new VentanaColor(observador);
 		VentanaSeleccion miVentanaSeleccion=new VentanaSeleccion(observador);
+                VentanaBoton miVentanaBoton = new VentanaBoton(observador);
 	
 		/*Aqui se Agregan los observadores*/
 		observador.addObserver(miVentanaColor);
 		observador.addObserver(miVentanaSeleccion);
 		observador.addObserver(miVentanaOpciones);
+                observador.addObserver(miVentanaBoton);
 	}
 }
